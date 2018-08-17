@@ -1,0 +1,77 @@
+body {
+    background:url('../img/day_1.jpg');
+    color:#fff;
+}
+
+/* 城市选择 */
+
+#app ul li{
+    display: inline-block;
+    list-style: none;
+    height: 26px;
+    line-height: 26px;
+}
+
+#app ul li a {
+    text-decoration: none;
+    border: 1px solid #fff;
+    border-radius:5px; 
+    padding: 0 10px;
+    color: #fff;
+}
+
+#app ul li i{
+    background:url('../img/icon/right.png');
+    display: inline-block;
+    width: 16px;
+    height:16px;
+}
+
+/* 温度详情 */
+.info-wrapper{
+}
+
+.info-wrapper .temp{
+    font-size: 170px;
+    position: relative;
+}
+.info-wrapper .temp::before{
+    position: absolute;
+    top:18px;
+    right: -40px;
+    content: '。';
+    font-size: 48px;
+
+}
+.info-wrapper img{
+    margin-bottom: -20px;
+}
+
+.info-wrapper .condition{
+    font-size: 30px;
+}
+.info-wrapper .about{
+    font-size: 20px;
+}
+.info-wrapper .humidity{
+    background: url('../img/wea_icon/i_water.png') no-repeat left top;
+    padding: 0 0 0 35px;
+
+}
+
+.info-wrapper .wind{
+    margin-left: 35px;
+    background: url('../img/wea_icon/i_wind.png') no-repeat left top;
+    padding: 0 0 0 35px;
+
+}
+
+.info-wrapper .suggest{
+    padding: 4px 14px;
+    background: rgba(0, 0, 0, .3);
+    border-radius: 14px;
+}
+
+.info-wrapper .suggestion{
+    padding: 0 10px;
+}

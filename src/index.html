@@ -5,30 +5,38 @@
     <meta charset="utf-8" />
     <title>test</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="./index.css">
 </head>
 
 <body>
     <div id="app">
         <ul>
-            <li>{{weather}}</li>
-            <li>{{country}}</li>
-            <li>{{province}}</li>
-            <li>{{city}}</li>
+            <li><a href="#">{{weather}}</a><i></i></li>
+            <li><a href="#">{{country}}</a><i></i></li>
+            <li><a href="#">{{province}}</a><i></i></li>
+            <li><a href="#" @click="getCityWeather">{{city}}</a></li>
         </ul>
+        <div class="info-wrapper">
+            <div class="wea">
+                <span class="temp">{{condition.temp}}</span>
+                <img src="../img/weather/cloudy.png" alt="多云">
+                <span class="condition">{{condition.condition}}</span>
+            </div>
+            <div class="about">
+                <span class="humidity">湿度{{condition.humidity}}</span>
+                <span class="wind">{{condition.windDir}}{{condition.windLevel}}级</span>
+            </div>
+            <div class="tips">
+                <span class="suggest">今日天气提示</span>
+                <span class="suggestion">{{condition.tips}}</span>
+            </div>
+        </div>
     </div>
 
     <script src="../vendor/vue.js"></script>
-    <script>
-        var app = new Vue({
-            el: '#app',
-            data: {
-                weather: '天气',
-                country:'国家',
-                province:'省份',
-                city:'城市'
-            }
-        })
-    </script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="./index.js"></script>
+
 
 </body>
 </html>
