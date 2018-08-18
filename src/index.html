@@ -10,7 +10,7 @@
 
 <body>
     <div id="app">
-        <ul>
+        <ul class="position">
             <li><a href="#">{{weather}}</a><i></i></li>
             <li><a href="#">{{country}}</a><i></i></li>
             <li><a href="#">{{province}}</a><i></i></li>
@@ -18,18 +18,51 @@
         </ul>
         <div class="info-wrapper">
             <div class="wea">
-                <span class="temp">{{condition.temp}}</span>
+                <span class="temp">{{condition.temp}}31</span>
                 <img src="../img/weather/cloudy.png" alt="多云">
-                <span class="condition">{{condition.condition}}</span>
+                <span class="condition">{{condition.condition}}多云</span>
             </div>
             <div class="about">
-                <span class="humidity">湿度{{condition.humidity}}</span>
-                <span class="wind">{{condition.windDir}}{{condition.windLevel}}级</span>
+                <span class="humidity">湿度{{condition.humidity}}51%</span>
+                <span class="wind">{{condition.windDir}}{{condition.windLevel}}西南风2级</span>
             </div>
             <div class="tips">
                 <span class="suggest">今日天气提示</span>
-                <span class="suggestion">{{condition.tips}}</span>
+                <span class="suggestion">{{condition.tips}}有些热了，记得多喝水</span>
             </div>
+        </div>
+        <div class="forecast">
+            <div class="fore-title">
+                <span>预报</span>
+                <ul class="fore-nav">
+                    <li><a href="#">7天预报</a></li>
+                    <li><a href="#">10天预报</a></li>
+                    <li><a href="#">15天预报</a></li>
+                </ul>
+            </div>
+            <ul class="fore-body">
+                <li>
+                    <a href="#">今天</a>
+                    <span><img src="" alt="">中雨</span>
+                    <span>26/30</span>
+                    <span><span>西北风</span><span>1级别</span></span>
+                    <span>19 优</span>
+                </li>
+                <li>
+                        <a href="#">明天</a>
+                        <span><img src="" alt="">中雨</span>
+                        <span>26/30</span>
+                        <span><span>西北风</span><span>1级别</span></span>
+                        <span>19 优</span>
+                </li>
+                <li>
+                        <a href="#">后天</a>
+                        <span><img src="" alt="">中雨</span>
+                        <span>26/30</span>
+                        <span><span>西北风</span><span>1级别</span></span>
+                        <span>19 优</span>
+                </li>
+            </ul>
         </div>
     </div>
 
