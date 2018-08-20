@@ -19,7 +19,7 @@
         <div class="info-wrapper">
             <div class="wea">
                 <span class="temp">{{condition.temp}}31</span>
-                <img src="../img/weather/cloudy.png" alt="多云">
+                <img src="../img/fore-icon/w1.png" alt="多云">
                 <span class="condition">{{condition.condition}}多云</span>
             </div>
             <div class="about">
@@ -31,7 +31,7 @@
                 <span class="suggestion">{{condition.tips}}有些热了，记得多喝水</span>
             </div>
         </div>
-        <div class="forecast">
+        <div class="forecast clearfix">
             <div class="fore-title">
                 <span>预报</span>
                 <ul class="fore-nav">
@@ -40,28 +40,26 @@
                     <li><a href="#">15天预报</a></li>
                 </ul>
             </div>
-            <ul class="fore-body">
-                <li>
-                    <a href="#">今天</a>
-                    <span><img src="" alt="">中雨</span>
-                    <span>26/30</span>
-                    <span><span>西北风</span><span>1级别</span></span>
-                    <span>19 优</span>
-                </li>
-                <li>
-                        <a href="#">明天</a>
-                        <span><img src="" alt="">中雨</span>
-                        <span>26/30</span>
-                        <span><span>西北风</span><span>1级别</span></span>
-                        <span>19 优</span>
-                </li>
-                <li>
-                        <a href="#">后天</a>
-                        <span><img src="" alt="">中雨</span>
-                        <span>26/30</span>
-                        <span><span>西北风</span><span>1级别</span></span>
-                        <span>19 优</span>
-                </li>
+            <ul class="fore-body clearfix">
+                <li><a href="#">今天</a></li>
+                <li><img src="../img/fore-icon/w1.png" alt="">中雨</li>
+                <li>26/30</li>
+                <li><em>西北风</em><b>1级</b></li>
+                <li> <strong>19 优</strong></li> 
+            </ul>
+            <ul class="fore-body clearfix">
+                <li><a href="#">明天</a></li>
+                <li><img src="../img/fore-icon/w1.png" alt="">中雨</li>
+                <li>26/30</li>
+                <li><em>西北风</em><b>1级</b></li>
+                <li> <strong>19 优</strong></li> 
+            </ul>
+            <ul class="fore-body clearfix">
+                <li><a href="#">后天</a></li>
+                <li><img src="../img/fore-icon/w1.png" alt="">中雨</li>
+                <li>26/30</li>
+                <li><em>西北风</em><b>1级</b></li>
+                <li> <strong>19 优</strong></li> 
             </ul>
         </div>
     </div>

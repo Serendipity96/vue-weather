@@ -13,6 +13,11 @@ body {
     background:url('../img/day_1.jpg');
     color:#fff;
 }
+.clearfix::after{
+    clear: both;
+    content: '';
+    display: block;
+}
 
 /* 城市选择 */
 
@@ -90,6 +95,7 @@ body {
 .forecast{
     width: 755px;
     background: rgba(0, 0, 0, .3);
+    margin: 20px 0;
 }
 
 .forecast .fore-title{
@@ -107,7 +113,62 @@ body {
     float: left;
     margin: 11px 0 0 12px;
     padding: 0 4px;
-    border-bottom: 1px solid rgba(255, 255, 255, .6);
+    border-bottom: 1px solid rgba(255, 255, 255, .7);
+    
     height: 24px;
     line-height: 24px;
+}
+.forecast .fore-title .fore-nav li a{
+    color: rgba(255, 255, 255, .7);
+}
+.fore-body{
+    padding: 0 25px 0 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, .2);
+    height: 58px;
+    line-height: 58px;
+}
+.fore-body li{
+    float: left;
+}
+.fore-body li:nth-child(1){
+    width: 112px;
+}
+.fore-body li:nth-child(2){
+    width: 164px;
+}
+.fore-body li:nth-child(3){
+    width: 142px;
+}
+.fore-body li:nth-child(4){
+    width: 102px;
+}
+.fore-body li:nth-child(5){
+    float: right;
+}
+
+.fore-body li a{
+    padding: 2px 4px;
+    border-bottom: 1px solid rgba(255, 255, 255, .7);
+    color: rgba(255, 255, 255, .7);
+} 
+.fore-body img{
+    max-width: 28px; 
+    max-height: 28px;
+    margin: 0 10px -5px 0;
+}
+
+.fore-body li em{
+    font-style: normal;
+}
+
+.fore-body li b{
+    float: right;
+    font-weight: normal;
+}
+
+.fore-body li strong{
+    padding: 2px 10px;
+    font-weight: normal;
+    border-radius: 13px;
+    background-color: #8fc31f;
 }
