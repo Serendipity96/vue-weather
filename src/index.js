@@ -7,7 +7,8 @@ var app = new Vue({
     city: "深圳",
     condition: {},
     threeDays: [],
-    fifteenDays:[]
+    fifteenDays: [],
+    liveIndex: []
   },
   methods: {
     getCityWeather() {
@@ -31,6 +32,7 @@ var app = new Vue({
         .catch(error => console.log(error));
     },
     getForecast() {
+      
       axios
         .post(
           `http://aliv18.data.moji.com/whapi/json/alicityweather/forecast15days?cityId=${284609}`,
@@ -40,11 +42,32 @@ var app = new Vue({
         .then(res => {
           let forecast = res.data.data.forecast;
           for (let i = 0; i < 3; i++) {
-            app.threeDays.push(forecast[i])
+            app.threeDays.push(forecast[i]);
           }
-          for(let i = 0 ;i<16;i++){
-            app.fifteenDays.push(forecast[i])
+          for (let i = 0; i < 16; i++) {
+            app.fifteenDays.push(forecast[i]);
           }
+        });
+    },
+    getLive() {
+      let date = new Date();
+      let month = date.getMonth()+1;
+      if(month < 10){
+        month = '0'+month
+      }
+      const day = date.getFullYear()+'-'+month+'-'+date.getDate()
+
+      axios
+        .post(
+          `http://aliv18.data.moji.com/whapi/json/alicityweather/index?cityId=${284609}`,
+          {},
+          axiosConfig
+        )
+        .then(res => {
+          console.log(day)
+          console.log(res.data.data.liveIndex);
+          console.log(res.data.data.liveIndex.day)
+           app.liveIndex = Object.assign({}, app.liveIndex, res.data.data.liveIndex)
         });
     }
   }

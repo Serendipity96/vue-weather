@@ -42,7 +42,7 @@
                 <span class="suggestion">{{condition.tips}}</span>
             </div>
         </div>
-        <div class="forecast clearfix" ref="threeDays">
+        <div class="forecast clearfix">
             <div class="fore-title">
                 <span @click="getForecast">预报</span>
                 <ul class="fore-nav">
@@ -76,6 +76,34 @@
 
             </div>
 
+        </div>
+        <div class="live">
+            <div class="live-title">
+                <span @click="getLive">生活指数</span>
+            </div>
+            <ul class="live-body clearfix">
+                <li class="live-body-item" v-for="index in liveIndex">
+                    <img src="../img/live-icon/car.png" alt="">
+                    <dl>
+                        <dt>{{index.name}}</dt>
+                        <dd>洗车</dd>
+                    </dl>
+                </li>
+                <li class="live-body-item">
+                    <img src="../img/live-icon/car.png" alt="">
+                    <dl>
+                        <dt>不宜</dt>
+                        <dd>洗车</dd>
+                    </dl>
+                </li>
+                <li class="live-body-item">
+                    <img src="../img/live-icon/car.png" alt="">
+                    <dl>
+                        <dt>不宜</dt>
+                        <dd>洗车</dd>
+                    </dl>
+                </li>
+            </ul>
         </div>
         <div class="calendar">
             <div class="cal-title">
