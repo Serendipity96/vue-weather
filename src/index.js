@@ -39,7 +39,6 @@ var app = new Vue({
         )
         .then(res => {
           let forecast = res.data.data.forecast;
-          console.log(forecast);
           for (let i = 0; i < 3; i++) {
             app.threeDays.push(forecast[i])
           }

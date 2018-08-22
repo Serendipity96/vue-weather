@@ -42,8 +42,7 @@ body {
 }
 
 /* 温度详情 */
-.info-wrapper{
-}
+
 
 .info-wrapper .temp{
     font-size: 170px;
@@ -98,10 +97,12 @@ body {
     margin: 20px 0;
 }
 
-.forecast .fore-title{
+.forecast .fore-title,
+.calendar .cal-title{
     height: 46px;
 }
-.forecast .fore-title span{
+.forecast .fore-title span,
+.calendar .cal-title span{
     margin: 0 0 0 20px;
     line-height: 46px;
 }
@@ -171,4 +172,60 @@ body {
     font-weight: normal;
     border-radius: 13px;
     background-color: #8fc31f;
+}
+
+/*天气日历*/
+.calendar{
+    width: 1000px;
+    background: rgba(0, 0, 0, .3);
+    margin: 20px 0;
+}
+.calendar .cal-body {
+    margin: 0 -1px 0 0px;
+}
+.calendar .cal-title li{
+    float: left;
+    width: 142px;
+    line-height: 40px;
+    text-align: center;
+}
+
+.calendar .cal-title li:nth-child(1),
+.calendar .cal-title li:nth-child(7){
+    color: #fff390;
+}
+
+
+.calendar .cal-body-item{
+    float: left;
+    width: 142px;
+    height: 142px;
+    border: 1px solid rgba(255, 255, 255, .2);
+    border-width: 0 1px 1px 0;
+    position: relative;
+}
+.calendar .cal-body-item:hover{
+    background: rgba(0, 0, 0, .3);
+}
+
+.calendar .cal-body-item em{
+    position: absolute;
+    top: 14px;
+    right: 20px;
+    text-align: right;
+    font-style: normal;
+    font-weight: bold;
+}
+
+.calendar .cal-body-item img{
+    margin: 46px 0 6px 20px;
+    display: block;
+    width: 30px;
+    height: 30px;
+}
+
+.calendar .cal-body-item p{
+    line-height: 25px;
+    font-size: 14px;
+    padding: 0 0 0 20px;
 }

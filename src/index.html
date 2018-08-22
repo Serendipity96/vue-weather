@@ -77,6 +77,33 @@
             </div>
 
         </div>
+        <div class="calendar">
+            <div class="cal-title">
+                <span>天气日历</span>
+            </div>
+            <div class="cal-title clearfix">
+                <ul>
+                    <li>星期日</li>
+                    <li>星期一</li>
+                    <li>星期二</li>
+                    <li>星期三</li>
+                    <li>星期四</li>
+                    <li>星期五</li>
+                    <li>星期六</li>
+                </ul>
+            </div>
+            <ul class="cal-body clearfix">
+                <li class="cal-body-item" v-for="day in fifteenDays">
+                    <em>01</em>
+                    <img src="../img/fore-icon/w1.png" alt="">
+                    <p>{{day.tempNight}}/{{day.tempDay}}</p>
+                    <p>{{day.windDirDay}}&nbsp;&nbsp;{{day.windLevelDay}}级</p>
+                </li>
+            </ul>
+
+        </div>
+
+    </div>
     </div>
 
     <script src="../vendor/vue.js"></script>
