@@ -64,10 +64,16 @@ var app = new Vue({
           axiosConfig
         )
         .then(res => {
-          console.log(day)
-          console.log(res.data.data.liveIndex);
-          console.log(res.data.data.liveIndex.day)
-           app.liveIndex = Object.assign({}, app.liveIndex, res.data.data.liveIndex)
+          // 去除指数两个字，需要写的更优美一些
+          let liveIndex = res.data.data.liveIndex[day];
+          liveIndex.splice(7,1);
+          liveIndex.forEach(element => {
+            let name = element.name.split('');
+            name.splice(-1,1);
+            name.splice(-1,1);
+            element.name = name.join('')
+          });
+           app.liveIndex = Object.assign({}, app.liveIndex, liveIndex)
         });
     }
   }
