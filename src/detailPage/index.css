@@ -10,7 +10,7 @@
   text-decoration: none;
 }
 body {
-  background: url("../img/day_1.jpg");
+  background: url("../../img/day_1.jpg");
   color: #fff;
 }
 .clearfix::after {
@@ -34,7 +34,7 @@ body {
 }
 
 .position li i {
-  background: url("../img/icon/right.png");
+  background: url("../../img/icon/right.png");
   display: inline-block;
   width: 16px;
   height: 16px;
@@ -65,13 +65,13 @@ body {
   margin-bottom: 25px;
 }
 .info-wrapper .humidity {
-  background: url("../img/wea_icon/i_water.png") no-repeat left top;
+  background: url("../../img/wea_icon/i_water.png") no-repeat left top;
   padding: 0 0 0 35px;
 }
 
 .info-wrapper .wind {
   margin-left: 35px;
-  background: url("../img/wea_icon/i_wind.png") no-repeat left top;
+  background: url("../../img/wea_icon/i_wind.png") no-repeat left top;
   padding: 0 0 0 35px;
 }
 
@@ -86,28 +86,34 @@ body {
 }
 
 /* 预报表格 */
-.forecast {
-  width: 755px;
+.forecast,
+.live,
+.hours {
+  width: 756px;
   background: rgba(0, 0, 0, 0.3);
   margin: 20px 0;
 }
 
 .forecast .fore-title,
 .calendar .cal-title,
-.live .live-title {
+.live .live-title,
+.hours .hours-title {
   height: 46px;
 }
 .forecast .fore-title span,
 .calendar .cal-title span,
-.live .live-title span {
+.live .live-title span,
+.hours .hours-title span {
   margin: 0 0 0 20px;
   line-height: 46px;
 }
-.forecast .fore-title .fore-nav {
+.forecast .fore-title .fore-nav,
+.hours .hours-title .hours-nav {
   margin: 0 20px 0 0;
   float: right;
 }
-.forecast .fore-title .fore-nav li {
+.forecast .fore-title .fore-nav li,
+.hours .hours-title .hours-nav li {
   float: left;
   margin: 11px 0 0 12px;
   padding: 0 4px;
@@ -116,7 +122,8 @@ body {
   height: 24px;
   line-height: 24px;
 }
-.forecast .fore-title .fore-nav li a {
+.forecast .fore-title .fore-nav li a,
+.hours .hours-title .hours-nav li a {
   color: rgba(255, 255, 255, 0.7);
 }
 .fore-body {
@@ -170,13 +177,48 @@ body {
   border-radius: 13px;
   background-color: #8fc31f;
 }
+/*24小时预报*/
+.hours .hours-body {
+  position: relative;
+  width: 100%;
+  height: 216px;
+}
+
+.hours .hours-body .prev {
+  position: absolute;
+  top: 60px;
+  left: 20px;
+  width: 23px;
+  height: 44px;
+  opacity: 0.6;
+  cursor: pointer;
+  background: url("../../img/icon/scenery_prev.png") no-repeat center center;
+}
+
+.hours .hours-body .next {
+  position: absolute;
+  top: 60px;
+  right: 20px;
+  width: 23px;
+  height: 44px;
+  opacity: 0.6;
+  cursor: pointer;
+  background: url("../../img/icon/scenery_next.png") no-repeat center center;
+}
+
+.hours .hours-body .num {
+  position: absolute;
+  top: 30px;
+  left: 40px;
+  text-align: right;
+}
+.hours .hours-body .num span{
+  display: block;
+  height: 40px;
+  width: 40px;
+}
 
 /*生活指数*/
-.live {
-  width: 756px;
-  margin: 20px 0 0 0;
-  background: rgba(0, 0, 0, 0.3);
-}
 .live .live-body-item {
   float: left;
   display: block;

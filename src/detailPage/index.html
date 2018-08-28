@@ -5,6 +5,8 @@
     <meta charset="utf-8" />
     <title>test</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- <link rel="stylesheet/less" href="./styles.less" /> -->
     <link rel="stylesheet" href="./index.css">
 </head>
 
@@ -30,7 +32,7 @@
         <div class="info-wrapper">
             <div class="wea">
                 <span class="temp">{{condition.temp}}</span>
-                <img src="../img/fore-icon/w1.png" alt="多云">
+                <img src="../../img/fore-icon/w1.png" alt="多云">
                 <span class="condition">{{condition.condition}}</span>
             </div>
             <div class="about">
@@ -63,7 +65,7 @@
                         <a href="#">今天</a>
                     </li>
                     <li>
-                        <img src="../img/fore-icon/w1.png" alt="">{{day.conditionDay}}</li>
+                        <img src="../../img/fore-icon/w1.png" alt="">{{day.conditionDay}}</li>
                     <li>{{day.tempNight}}/{{day.tempDay}}</li>
                     <li>
                         <em>{{day.windDirDay}}</em>
@@ -77,13 +79,46 @@
             </div>
 
         </div>
+
+        <div class="hours">
+            <div class="hours-title">
+                <span @click="getHours">24小时预报</span>
+                <ul class="hours-nav">
+                    <li>
+                        <a href="#">温度</a>
+                    </li>
+                    <li>
+                        <a href="#">风力</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="hours-body">
+                <div class="temp-chart">
+                    <div class="prev"></div>
+                    <div class="next"></div>
+                    <div id="tempChart" style="width:1000px; height:300px;"></div>
+                    <!-- <div class="num">
+                        <span>16</span>
+                        <span>16</span>
+                        <span>16</span>
+                        <span>16</span>
+                    </div> -->
+
+                    <!-- <canvas id="tempCanvas"width="4000" height="300"></canvas> -->
+                </div>
+
+
+                <div class="wind-chart" style="display: none;"></div>
+            </div>
+        </div>
+
         <div class="live">
             <div class="live-title">
                 <span @click="getLive">生活指数</span>
             </div>
             <ul class="live-body clearfix">
                 <li class="live-body-item" v-for="index in liveIndex">
-                    <img src="../img/live-icon/car.png" alt="">
+                    <img src="../../img/live-icon/car.png" alt="">
                     <dl>
                         <dt>{{index.status}}</dt>
                         <dd>{{index.name}}</dd>
@@ -109,7 +144,7 @@
             <ul class="cal-body clearfix">
                 <li class="cal-body-item" v-for="day in fifteenDays">
                     <em>01</em>
-                    <img src="../img/fore-icon/w1.png" alt="">
+                    <img src="../../img/fore-icon/w1.png" alt="">
                     <p>{{day.tempNight}}/{{day.tempDay}}</p>
                     <p>{{day.windDirDay}}&nbsp;&nbsp;{{day.windLevelDay}}级</p>
                 </li>
@@ -120,10 +155,45 @@
     </div>
     </div>
 
-    <script src="../vendor/vue.js"></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="../../vendor/vue.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="./index.js"></script>
+    <script>
+        (function () {
+            var myChart = Highcharts.chart('tempChart', {
+                chart: {
+                    type: 'line'
+                },
+                title: {
+                    text: '24小时预报'
+                },
 
+                xAxis: {
+                    categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+                },
+                yAxis: {
+                    title: {
+                        text: '温度 (°C)'
+                    }
+                },
+                plotOptions: {
+                    line: {
+                        dataLabels: {
+                            enabled: true
+                        },
+                        enableMouseTracking: false
+                    }
+                },
+                credits: {
+                    enabled: false // 禁用版权信息
+                },
+                series: [{
+                    name: '',
+                    data: [7.0, 6.9, 9.5, 14.5, 18.4, 21.5, 25.2, 26.5, 23.3, 18.3, 13.9, 9.6]
+                }]
+            });
+        })();</script>
 
 </body>
 

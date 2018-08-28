@@ -1,3 +1,5 @@
+// import { cityWeatherUrl, forecastUrl, liveUrl } from "../util";
+
 var app = new Vue({
   el: "#app",
   data: {
@@ -32,7 +34,6 @@ var app = new Vue({
         .catch(error => console.log(error));
     },
     getForecast() {
-      
       axios
         .post(
           `http://aliv18.data.moji.com/whapi/json/alicityweather/forecast15days?cityId=${284609}`,
@@ -49,13 +50,24 @@ var app = new Vue({
           }
         });
     },
+    getHours() {
+      axios
+        .post(
+          `http://aliv18.data.moji.com/whapi/json/alicityweather/forecast24hours?cityId=${284609}`,
+          {},
+          axiosConfig
+        )
+        .then(res => {
+          console.log(res);
+        });
+    },
     getLive() {
       let date = new Date();
-      let month = date.getMonth()+1;
-      if(month < 10){
-        month = '0'+month
+      let month = date.getMonth() + 1;
+      if (month < 10) {
+        month = "0" + month;
       }
-      const day = date.getFullYear()+'-'+month+'-'+date.getDate()
+      const day = date.getFullYear() + "-" + month + "-" + date.getDate();
 
       axios
         .post(
@@ -66,14 +78,14 @@ var app = new Vue({
         .then(res => {
           // 去除指数两个字，需要写的更优美一些
           let liveIndex = res.data.data.liveIndex[day];
-          liveIndex.splice(7,1);
+          liveIndex.splice(7, 1);
           liveIndex.forEach(element => {
-            let name = element.name.split('');
-            name.splice(-1,1);
-            name.splice(-1,1);
-            element.name = name.join('')
+            let name = element.name.split("");
+            name.splice(-1, 1);
+            name.splice(-1, 1);
+            element.name = name.join("");
           });
-           app.liveIndex = Object.assign({}, app.liveIndex, liveIndex)
+          app.liveIndex = Object.assign({}, app.liveIndex, liveIndex);
         });
     }
   }
