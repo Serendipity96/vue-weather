@@ -94,17 +94,9 @@
             </div>
             <div class="hours-body">
                 <div class="temp-chart">
-                    <div class="prev"></div>
-                    <div class="next"></div>
+                    <!-- <div class="prev"></div> -->
+                    <!-- <div class="next"></div> -->
                     <div id="tempChart" style="width:1000px; height:300px;"></div>
-                    <!-- <div class="num">
-                        <span>16</span>
-                        <span>16</span>
-                        <span>16</span>
-                        <span>16</span>
-                    </div> -->
-
-                    <!-- <canvas id="tempCanvas"width="4000" height="300"></canvas> -->
                 </div>
 
 
@@ -163,19 +155,35 @@
         (function () {
             var myChart = Highcharts.chart('tempChart', {
                 chart: {
-                    type: 'line'
+                    backgroundColor: 'rgba(0, 0, 0, 0.3)',
+                    type: 'line',
                 },
                 title: {
-                    text: '24小时预报'
+                    text: '24小时预报',
+                    style: {
+                        color: '#ffffff'
+                    }
                 },
-
                 xAxis: {
-                    categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+                    labels: {
+                        style: {
+                            color: '#fff'
+                        },
+                    },
+                    categories: ['0:00', '1:00', '2:00', '3:00', '4:00', '5:00', '6:00', '7:00', '8:00', '9:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00', '17:00', '18:00', '19:00', '20:00', '21:00', '22:00', '23:00']
                 },
                 yAxis: {
                     title: {
-                        text: '温度 (°C)'
-                    }
+                        text: ''
+                    },
+                    labels: {
+                        style: {
+                            color: '#fff'
+                        },
+                    },
+                    floor: 10,
+                    ceiling: 30,
+                    gridLineColor: 'rgba(0, 0, 0, 0)'
                 },
                 plotOptions: {
                     line: {
@@ -183,6 +191,15 @@
                             enabled: true
                         },
                         enableMouseTracking: false
+                    },
+                    series: {
+                        color: '#fff'
+                    }
+                },
+                legend: {
+                    itemStyle: {
+                        color: '#ffffff',
+                        fontWeight: 'bold'
                     }
                 },
                 credits: {
@@ -190,7 +207,15 @@
                 },
                 series: [{
                     name: '',
-                    data: [7.0, 6.9, 9.5, 14.5, 18.4, 21.5, 25.2, 26.5, 23.3, 18.3, 13.9, 9.6]
+                    colors: ['red'],
+                    data: (function () {
+                        var data = [],
+                            i;
+                        for (i = 0; i < 24; i = i + 1) {
+                            data.push(i);
+                        }
+                        return data;
+                    }())
                 }]
             });
         })();</script>
